@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,5 +12,6 @@ public class GameManager : MonoBehaviour
     {
         playerScore += addToScore;
         playerScoreText.text = playerScore.ToString();
+        playerScoreText.color = Color.black;
     }
 }
