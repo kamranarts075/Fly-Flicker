@@ -19,7 +19,7 @@ public class MiddleTriggerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 3)
+        if (other.gameObject.CompareTag("Player"))
         {
             gameManager.AddScore(1);
         }

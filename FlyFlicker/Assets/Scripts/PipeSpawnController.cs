@@ -7,14 +7,18 @@ public class PipeSpawnController : MonoBehaviour
     public GameObject pipe;
     public float minSpawnRate;
     public float maxSpawnRate;
-    public float spawnRateDecreasePerPoint;
+    public float spawnRateDecreaseRate;
     private float timer = 0;
     public float heightOffset;
+
+    private float lastSpawnRate;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+        lastSpawnRate = maxSpawnRate;
 
         SpawnPipe();
     }
@@ -22,7 +26,18 @@ public class PipeSpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentSpawnRate = Mathf.Max(minSpawnRate, maxSpawnRate - (gameManager.playerScore * spawnRateDecreasePerPoint));
+        if (gameManager.isGameOver)
+        {
+            return;
+        }
+
+        float currentSpawnRate = Mathf.Max(minSpawnRate, maxSpawnRate - (gameManager.playerScore * spawnRateDecreaseRate));
+
+        if (currentSpawnRate < lastSpawnRate)
+        {
+            gameManager.ShowSpawnRateIncreaseCue();
+        }
+        lastSpawnRate = currentSpawnRate;
 
         if (timer < currentSpawnRate)
         {

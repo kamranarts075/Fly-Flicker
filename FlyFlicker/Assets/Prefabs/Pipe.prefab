@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7458620919379822621}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5cd33beab7115418eb74178cea77df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &9184842465132720597
 GameObject:
   m_ObjectHideFlags: 0
