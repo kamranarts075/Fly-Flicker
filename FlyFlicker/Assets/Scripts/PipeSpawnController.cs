@@ -3,21 +3,28 @@ using System.Collections;
 
 public class PipeSpawnController : MonoBehaviour
 {
+    public GameManager gameManager;
     public GameObject pipe;
-    public float spawnRate;
+    public float minSpawnRate;
+    public float maxSpawnRate;
+    public float spawnRateDecreasePerPoint;
     private float timer = 0;
     public float heightOffset;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         SpawnPipe();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
+        float currentSpawnRate = Mathf.Max(minSpawnRate, maxSpawnRate - (gameManager.playerScore * spawnRateDecreasePerPoint));
+
+        if (timer < currentSpawnRate)
         {
             timer += Time.deltaTime;
         }

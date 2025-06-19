@@ -255,8 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278653370c19dd54c94d5be94bd9d4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   pipe: {fileID: 3019827401664604770, guid: 98e103de242c21f459512c5261bfceeb, type: 3}
-  spawnRate: 2.5
+  minSpawnRate: 0.8
+  maxSpawnRate: 2
+  spawnRateDecreasePerPoint: 0.05
   heightOffset: 2.5
 --- !u!1 &911733606
 GameObject:
@@ -652,6 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdRB: {fileID: 1445169087}
   flySpeed: 7.5
+  maxHeight: 5
 --- !u!1 &1642392134
 GameObject:
   m_ObjectHideFlags: 0
