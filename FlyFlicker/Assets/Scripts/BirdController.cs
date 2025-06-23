@@ -54,6 +54,7 @@ public class BirdController : MonoBehaviour
         if (collision.gameObject.CompareTag("Pipe"))
         {
             gameManager.GameOver();
+            StartCoroutine(RestartGame());
         }
     }
 
